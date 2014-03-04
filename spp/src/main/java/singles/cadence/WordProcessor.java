@@ -64,7 +64,7 @@ public class WordProcessor
         {
             incrementIndex();
         }
-        for (int i = 0; i < words.get(index).length(); i++)
+        for (int i = 0; i <= words.get(index).length(); i++)
         {
             if (words.size() - 1 >= index + i)
             {
@@ -73,15 +73,17 @@ public class WordProcessor
                     words.remove(index + i);
                 }
                 String word = words.get(index + i);
-                if(word.length() < i)
+                if(word.length() - 1 < i)
                 {
                     result = result.concat(String.valueOf(word.charAt(word.length() - 1)));
+                    words.set(index + i, String.valueOf(new StringBuilder(word).deleteCharAt(word.length() - 1)));
                 }
                 else
                 {
                     result = result.concat(String.valueOf(word.charAt(i)));
+                    words.set(index + i, String.valueOf(new StringBuilder(word).deleteCharAt(i)));
                 }
-                words.set(index + i, String.valueOf(new StringBuilder(word).deleteCharAt(i)));
+
                 logger.debug("String: " + words.get(i));
 
             }

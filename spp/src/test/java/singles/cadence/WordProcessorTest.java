@@ -24,6 +24,6 @@ public class WordProcessorTest
 
         WordProcessor wp = new WordProcessor(stringList);
 
-        assert wp.getNextWord().equals("hom");
+        assert wp.getNextWord().equals("homal");
     }
 }
